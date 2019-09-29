@@ -2,7 +2,7 @@ package ru.zychkov.range;
 
 import java.util.Scanner;
 
-public class MainRange {
+public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
