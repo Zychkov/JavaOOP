@@ -1,5 +1,6 @@
 package ru.zychkov.range;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -12,7 +13,7 @@ public class Main {
         System.out.println("Введите число конца первого диапазона");
         double to1 = scanner.nextInt();
 
-        Range range1 = new Range(from1, to1);
+        Range range = new Range(from1, to1);
 
         System.out.println("Введите число начала второго диапазона");
         double from2 = scanner.nextInt();
@@ -20,15 +21,19 @@ public class Main {
         System.out.println("Введите число конца второго диапазона");
         double to2 = scanner.nextInt();
 
-        Range range2 = new Range(from2, to2);
-
-        Range intersectionRange = range1.getIntersection(range2);
+        Range intersectionRange = range.getIntersection(from1, to1, from2, to2);
 
         if (intersectionRange == null) {
             System.out.println("Диапазоны не пересекаются");
         } else {
-            System.out.printf("Диапазоны пересекаются в точках %.1f и %.1f", intersectionRange.getFrom(), intersectionRange.getTo());
+            System.out.printf("Диапазоны имеют общие точки %.1f и %.1f", intersectionRange.getFrom(), intersectionRange.getTo());
+            System.out.println();
         }
 
+        Range[] unionRange = range.getUnion(from1, to1, from2, to2);
+        System.out.println("Результат объединения диапазонов = " + (Arrays.toString(unionRange)));
+
+        Range[] differenceRange = range.getDifference(from1, to1, from2, to2);
+        System.out.println("Результат разности диапазонов = " + (Arrays.toString(differenceRange)));
     }
 }
