@@ -22,7 +22,7 @@ public class Triangle implements Shape {
 
     }
 
-    //расчет по формуле Герона
+    // расчет по формуле Герона
     public double getArea() {
         double semiPerimeter = getPerimeter() / 2;
         return Math.sqrt(semiPerimeter * (semiPerimeter - getSideLength(x1, x2, y1, y2)) *
