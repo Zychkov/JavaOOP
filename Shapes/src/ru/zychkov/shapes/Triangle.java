@@ -19,31 +19,34 @@ public class Triangle implements Shape {
 
     private static double getSideLength(double x1, double x2, double y1, double y2) {
         return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
-
     }
 
     // расчет по формуле Герона
+    @Override
     public double getArea() {
         double semiPerimeter = getPerimeter() / 2;
         return Math.sqrt(semiPerimeter * (semiPerimeter - getSideLength(x1, x2, y1, y2)) *
                 (semiPerimeter - getSideLength(x2, x3, y2, y3)) * (semiPerimeter - getSideLength(x1, x3, y1, y3)));
     }
 
+    @Override
     public double getPerimeter() {
         return getSideLength(x1, x2, y1, y2) + getSideLength(x2, x3, y2, y3) + getSideLength(x1, x3, y1, y3);
     }
 
+    @Override
     public double getHeight() {
         return Math.max(y1, Math.max(y2, y3)) - Math.min(y1, Math.min(y2, y3));
     }
 
+    @Override
     public double getWidth() {
         return Math.max(x1, Math.max(x2, x3)) - Math.min(x1, Math.min(x2, x3));
     }
 
     @Override
     public String toString() {
-        return "Square" + "{" + x1 + "}";
+        return "Square {" + x1 + "}";
     }
 
     @Override
@@ -52,7 +55,7 @@ public class Triangle implements Shape {
             return true;
         }
 
-        if (obj == null || obj.getClass() != this.getClass()) {
+        if (obj == null || obj.getClass() != getClass()) {
             return false;
         }
 

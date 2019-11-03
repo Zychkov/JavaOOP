@@ -9,25 +9,29 @@ public class Rectangle implements Shape {
         this.lengthB = lengthB;
     }
 
+    @Override
     public double getArea() {
         return lengthA * lengthB;
     }
 
+    @Override
     public double getPerimeter() {
         return 2 * (lengthA + lengthB);
     }
 
+    @Override
     public double getHeight() {
         return lengthA;
     }
 
+    @Override
     public double getWidth() {
         return lengthB;
     }
 
     @Override
     public String toString() {
-        return "Rectangle" + "{" + lengthA + "}";
+        return "Rectangle {" + lengthA + "}";
     }
 
     @Override
@@ -36,7 +40,7 @@ public class Rectangle implements Shape {
             return true;
         }
 
-        if (obj == null || obj.getClass() != this.getClass()) {
+        if (obj == null || obj.getClass() != getClass()) {
             return false;
         }
 
@@ -52,7 +56,6 @@ public class Rectangle implements Shape {
         hash = prime * hash + Double.hashCode(lengthB);
         return hash;
     }
-
 }
 
 

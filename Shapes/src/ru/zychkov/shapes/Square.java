@@ -7,25 +7,29 @@ public class Square implements Shape {
         this.length = length;
     }
 
+    @Override
     public double getArea() {
         return length * length;
     }
 
+    @Override
     public double getPerimeter() {
         return 4 * length;
     }
 
+    @Override
     public double getHeight() {
         return length;
     }
 
+    @Override
     public double getWidth() {
         return length;
     }
 
     @Override
     public String toString() {
-        return "Square" + "{" + length + "}";
+        return "Square {" + length + "}";
     }
 
     @Override
@@ -34,7 +38,7 @@ public class Square implements Shape {
             return true;
         }
 
-        if (obj == null || obj.getClass() != this.getClass()) {
+        if (obj == null || obj.getClass() != getClass()) {
             return false;
         }
 
